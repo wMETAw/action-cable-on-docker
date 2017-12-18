@@ -1,0 +1,22 @@
+db:
+  image: mysql:5.7.20
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  tty: true
+
+# redis:
+#   image: redis:3.2.11
+#   expose:
+#     - '6379'
+
+web:
+  build: .
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  volumes:
+    - .:/myapp
+  ports:
+    - "3000:3000"
+  tty: true
+  links:
+    - db
+    # - redis
