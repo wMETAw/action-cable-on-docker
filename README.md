@@ -7,6 +7,10 @@
 
 $ docker-compose build
 $ docker-compose up
+
+# Quit or Open another window
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:migrate
 ```
 
 ### access
